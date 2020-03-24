@@ -21,3 +21,15 @@ steps:
     templateLocation: 'Linked artifact'
     csmFile: 'CreateAzureStorage/azuredeploy.json'
     deploymentMode: 'Incremental'
+
+- task: AzureResourceManagerTemplateDeployment@4
+  inputs:
+    deploymentScope: 'Vnet'
+    ConnectedServiceName: 'AzureRmPipeline-conn'
+    subscriptionName: '9f6ec589-a4fc-4ce7-aa65-0eb91940c609'
+    action: 'Create Or Update Vnet and Subnets'
+    resourceGroupName: 'ukanalitycs-rg'
+    location: 'ukwest'
+    templateLocation: 'Linked artifact'
+    csmFile: 'CreateAzureVnet/azuredeploy.json'
+    deploymentMode: 'Incremental'
